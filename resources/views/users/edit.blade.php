@@ -37,24 +37,24 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
-                    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('password'))
-                        <p class="help-block">
-                            {{ $errors->first('password') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
                     {!! Form::label('role_id', 'Role*', ['class' => 'control-label']) !!}
                     {!! Form::select('role_id', $roles, old('role_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('role_id'))
                         <p class="help-block">
                             {{ $errors->first('role_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('date_of_birth', 'Date of Birth', ['class' => 'control-label']) !!}
+                    {!! Form::text('date_of_birth', old('date_of_birth'), ['class' => 'form-control date', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('date_of_birth'))
+                        <p class="help-block">
+                            {{ $errors->first('date_of_birth') }}
                         </p>
                     @endif
                 </div>
@@ -97,7 +97,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('reporting_user_id', 'Reporting Manager*', ['class' => 'control-label']) !!}
+                    {!! Form::label('reporting_user_id', 'Reporting Manager', ['class' => 'control-label']) !!}
                     {!! Form::select('reporting_user_id', $reporting_users, old('reporting_user_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('reporting_user_id'))
@@ -109,7 +109,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('supervisor_user_id', 'Supervisor*', ['class' => 'control-label']) !!}
+                    {!! Form::label('supervisor_user_id', 'Supervisor', ['class' => 'control-label']) !!}
                     {!! Form::select('supervisor_user_id', $supervisor_user, old('supervisor_user_id'), ['class' => 'form-control']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('supervisor_user_id'))
@@ -218,7 +218,8 @@
             autoclose: true,
             dateFormat: "{{ config('app.date_format_js') }}",
             changeMonth: true,
-            changeYear: true
+            changeYear: true,
+            yearRange: "c-80:c"
         });
     </script>
 

@@ -122,7 +122,8 @@
             autoclose: true,
             dateFormat: "{{ config('app.date_format_js') }}",
             changeMonth: true,
-            changeYear: true
+            changeYear: true,
+            yearRange: "c-80:c"
         });
     </script>
 

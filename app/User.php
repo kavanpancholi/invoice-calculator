@@ -32,7 +32,7 @@ class User extends Authenticatable
 {
     use SoftDeletes;
     
-    protected $fillable = ['name', 'email', 'password', 'remember_token', 'ref_user_id', 'reporting_user_id', 'supervisor_user_id', 'last_company_name', 'last_company_position', 'joining_date', 'ending_date', 'per_month_pay', 'per_week_pay', 'paypal_email', 'role_id', 'position_id', 'department_id'];
+    protected $fillable = ['name', 'email', 'password', 'date_of_birth', 'remember_token', 'ref_user_id', 'reporting_user_id', 'supervisor_user_id', 'last_company_name', 'last_company_position', 'joining_date', 'ending_date', 'per_month_pay', 'per_week_pay', 'paypal_email', 'role_id', 'position_id', 'department_id'];
     
     
     /**
@@ -77,9 +77,40 @@ class User extends Authenticatable
      * Set to null if empty
      * @param $input
      */
+    public function setReportingUserIdAttribute($input)
+    {
+        $this->attributes['reporting_user_id'] = $input ? $input : null;
+    }
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setSupervisorUserIdAttribute($input)
+    {
+        $this->attributes['supervisor_user_id'] = $input ? $input : null;
+    }
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
     public function setDepartmentIdAttribute($input)
     {
         $this->attributes['department_id'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to date format
+     * @param $input
+     */
+    public function setDateOfBirthAttribute($input)
+    {
+        if ($input != null && $input != '') {
+            $this->attributes['date_of_birth'] = Carbon::createFromFormat(config('app.date_format'), $input)->format('Y-m-d');
+        } else {
+            $this->attributes['date_of_birth'] = null;
+        }
     }
 
     /**
@@ -92,6 +123,23 @@ class User extends Authenticatable
             $this->attributes['joining_date'] = Carbon::createFromFormat(config('app.date_format'), $input)->format('Y-m-d');
         } else {
             $this->attributes['joining_date'] = null;
+        }
+    }
+
+    /**
+     * Get attribute from date format
+     * @param $input
+     *
+     * @return string
+     */
+    public function getDateOfBirthAttribute($input)
+    {
+        $zeroDate = str_replace(['Y', 'm', 'd'], ['0000', '00', '00'], config('app.date_format'));
+
+        if ($input != $zeroDate && $input != null) {
+            return Carbon::createFromFormat('Y-m-d', $input)->format(config('app.date_format'));
+        } else {
+            return '';
         }
     }
 

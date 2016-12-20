@@ -7,7 +7,6 @@
         <div class="panel-heading">
             @lang('quickadmin.view')
         </div>
-        
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
@@ -19,6 +18,10 @@
                         <tr>
                             <th>@lang('quickadmin.users.fields.email')</th>
                             <td>{{ $user->email }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.users.fields.dateofbirth')</th>
+                            <td>{{ $user->date_of_birth or '' }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.users.fields.position')</th>
