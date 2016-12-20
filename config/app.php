@@ -1,7 +1,8 @@
 <?php
 
 return [
-
+    'date_format_js' => 'd/m/yy',
+    'date_format' => 'd/m/Y',
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -167,7 +168,8 @@ return [
          * Package Service Providers...
          */
 
-        //
+        Intervention\Image\ImageServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -225,6 +227,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        /*
+         * Package Aliases
+         */
+        'Image'        => Intervention\Image\Facades\Image::class,
+        'Form'         => Collective\Html\FormFacade::class,
+        'Html'         => Collective\Html\HtmlFacade::class,
 
     ],
 

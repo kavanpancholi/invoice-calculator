@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -15,18 +14,22 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->integer('per_week_pay');
-            $table->timestamp('last_invoice_at')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->decimal('per_week_pay', 15, 2);
             $table->date('from_date');
             $table->date('to_date');
-            $table->unsignedInteger('no_of_weeks');
-            $table->double('total_amount');
+            $table->date('last_invoice_at')->nullable();
+            $table->integer('no_of_weeks');
+            $table->integer('total_amount');
             $table->string('paypal_email');
+
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['deleted_at']);
         });
 
-        Schema::table('invoices', function ($table) {
+        Schema::table('invoices', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
