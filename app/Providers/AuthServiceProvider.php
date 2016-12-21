@@ -65,6 +65,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('user_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
+        Gate::define('user_profile', function ($user){
+            return in_array($user->role_id, [2]);
+        });
 
         // Auth gates for: Positions
         Gate::define('position_access', function ($user) {

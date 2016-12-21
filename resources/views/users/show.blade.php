@@ -76,8 +76,9 @@
             </div>
 
             <p>&nbsp;</p>
-
+            @can('user_access')
             <a href="{{ route('users.index') }}" class="btn btn-default">@lang('quickadmin.back_to_list')</a>
+            @endcan
         </div>
     </div>
 @stop

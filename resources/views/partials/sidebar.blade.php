@@ -25,26 +25,34 @@
                 
                 @can('role_access')
                 <li class="{{ $request->segment(1) == 'roles' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('roles.index') }}">
-                            <i class="fa fa-briefcase"></i>
-                            <span class="title">
-                                @lang('quickadmin.roles.title')
-                            </span>
-                        </a>
-                    </li>
+                    <a href="{{ route('roles.index') }}">
+                        <i class="fa fa-briefcase"></i>
+                        <span class="title">
+                            @lang('quickadmin.roles.title')
+                        </span>
+                    </a>
+                </li>
                 @endcan
                 @can('user_access')
                 <li class="{{ $request->segment(1) == 'users' ? 'active active-sub' : '' }}">
-                        <a href="{{ route('users.index') }}">
-                            <i class="fa fa-user"></i>
-                            <span class="title">
-                                @lang('quickadmin.users.title')
-                            </span>
-                        </a>
-                    </li>
+                    <a href="{{ route('users.index') }}">
+                        <i class="fa fa-user"></i>
+                        <span class="title">
+                            @lang('quickadmin.users.title')
+                        </span>
+                    </a>
+                </li>
                 @endcan
                 </ul>
             </li>
+            @endcan
+            @can('user_profile')
+                <li class="{{ $request->segment(1) == 'users' ? 'active' : '' }}">
+                    <a href="{{ route('users.show', Auth::user()->id) }}">
+                        <i class="fa fa-users"></i>
+                        <span class="title">@lang('quickadmin.users.profile')</span>
+                    </a>
+                </li>
             @endcan
             @can('position_access')
             <li class="{{ $request->segment(1) == 'positions' ? 'active' : '' }}">

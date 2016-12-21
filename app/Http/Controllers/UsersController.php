@@ -7,6 +7,7 @@ use App\Position;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
@@ -14,12 +15,7 @@ use App\Http\Requests\UpdateUsersRequest;
 class UsersController extends Controller
 {
     public function __construct() {
-        $this->middleware(function($request, $next) {
-            if(\Auth::user()->role_id != 1){
-                return abort(404);
-            }
-            return $next($request);
-        });
+
     }
     /**
      * Display a listing of User.
@@ -128,7 +124,12 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        if (! Gate::allows('user_view')) {
+        if (Gate::allows('user_view')) {
+            if(Auth::user()->id!=1 && Auth::user()->id!=$id){
+                return abort(401);
+            }
+        }
+        else{
             return abort(401);
         }
         $relations = [
