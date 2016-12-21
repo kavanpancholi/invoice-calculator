@@ -28,6 +28,10 @@ class Invoice extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.invoice');
+        return $this->view('emails.invoice')
+            ->attach(public_path('exports/invoice.xls',[
+                'as' => 'Invoice.xls',
+                'mime' => 'application/vnd.ms-excel',
+            ]));
     }
 }

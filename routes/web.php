@@ -6,8 +6,12 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::get('mail', function(){
+    Mail::to('kavanpancholi@gmail.com')->send(new \App\Mail\Invoice());
+});
+
 Route::get('invoice', function(){
-    return Invoice::generate(Auth::user()->id);
+    return Invoice::generate(2);
 });
 
 // Authentication Routes...
