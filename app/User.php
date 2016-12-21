@@ -225,5 +225,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class, 'supervisor_user_id')->withTrashed();
     }
+
+    public function invoice()
+    {
+        return $this->hasMany(Invoice::class, 'user_id')->withTrashed();
+    }
     
 }

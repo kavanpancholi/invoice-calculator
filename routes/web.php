@@ -1,6 +1,13 @@
 <?php
+use App\Invoice;
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return redirect('/home');
+});
+
+Route::get('invoice', function(){
+    return Invoice::generate(Auth::user()->id);
 });
 
 // Authentication Routes...
