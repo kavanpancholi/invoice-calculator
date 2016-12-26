@@ -94,15 +94,14 @@ class Invoice extends Model
         }
     }
 
-    public static function generate($user_id){
-        $user = User::find($user_id);
+    public static function generate($user){
         $per_week_pay = $user->per_week_pay;
         $start_date = NULL;
         if($user->invoice->isEmpty()){
             $start_date = Carbon::createFromFormat(config('app.date_format'), $user->joining_date);
         }
         else{
-            $last_invoice = Invoice::lastInvoice($user_id)->first();
+            $last_invoice = Invoice::lastInvoice($user->id)->first();
             $start_date = Carbon::createFromFormat(config('app.date_format'), $last_invoice->to_date)->addDay();
         }
         $end_date = Carbon::createFromDate(null, null, $user->expected_day_of_invoice);
@@ -111,7 +110,7 @@ class Invoice extends Model
         $weeks = $working_days/7;
         if($weeks <= 2){
             // Expectation day comes in 2 weeks. Let it merge with next month
-            return NULL;
+            return null;
         }
         // Checks if week changes in next 3 days from the expected day. Add that next week if changes
         for ($i = 0; $i <= 3; $i++){
@@ -145,11 +144,7 @@ class Invoice extends Model
         ];
         $invoice = Invoice::create($data);
 
-        Excel::create('invoice', function($excel) use ($data) {
-            $excel->sheet('New sheet', function($sheet) use ($data) {
-                $sheet->loadView('invoices.excel.sheet')->with('data',$data);
-            });
-        })->store('xls', public_path('exports'));
+        return $invoice;
     }
 
     public function scopeLastInvoice($query, $user_id){
