@@ -119,6 +119,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('invoice_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
+        Gate::define('user_invoice', function ($user) {
+            return in_array($user->role_id, [2]);
+        });
 
     }
 }

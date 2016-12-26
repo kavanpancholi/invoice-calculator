@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('positions_mass_destroy', ['uses' => 'PositionsController@massDestroy', 'as' => 'positions.mass_destroy']);
     Route::resource('departments', 'DepartmentsController');
     Route::post('departments_mass_destroy', ['uses' => 'DepartmentsController@massDestroy', 'as' => 'departments.mass_destroy']);
+    Route::get('invoices/user', ['uses' => 'InvoicesController@userInvoice', 'as' => 'invoices.user_invoice']);
     Route::resource('invoices', 'InvoicesController');
     Route::post('invoices_mass_destroy', ['uses' => 'InvoicesController@massDestroy', 'as' => 'invoices.mass_destroy']);
 });

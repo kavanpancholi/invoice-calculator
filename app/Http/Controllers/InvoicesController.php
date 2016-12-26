@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Invoice;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreInvoicesRequest;
 use App\Http\Requests\UpdateInvoicesRequest;
@@ -22,7 +23,17 @@ class InvoicesController extends Controller
         if (! Gate::allows('invoice_access')) {
             return abort(401);
         }
-        $invoices = Invoice::all();
+        $invoices = Invoice::get();
+
+        return view('invoices.index', compact('invoices'));
+    }
+
+    public function userInvoice()
+    {
+        if (! Gate::allows('user_invoice')) {
+            return abort(401);
+        }
+        $invoices = Invoice::where('user_id', Auth::user()->id)->get();
 
         return view('invoices.index', compact('invoices'));
     }

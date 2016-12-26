@@ -61,8 +61,12 @@
             </div>
 
             <p>&nbsp;</p>
-
-            <a href="{{ route('invoices.index') }}" class="btn btn-default">@lang('quickadmin.back_to_list')</a>
+            @can('invoice_access')
+                <a href="{{ route('invoices.index') }}" class="btn btn-default">@lang('quickadmin.back_to_list')</a>
+            @endcan
+            @can('user_invoice')
+                <a href="{{ route('invoices.user_invoice') }}" class="btn btn-default">@lang('quickadmin.back_to_list')</a>
+            @endcan
         </div>
     </div>
 @stop

@@ -14,7 +14,7 @@
         </div>
 
         <div class="panel-body">
-            <table class="table table-bordered table-striped {{ count($invoices) > 0 ? 'datatable' : '' }} dt-select">
+            <table class="table table-bordered table-striped {{ count($invoices) > 0 ? 'datatable' : '' }} @can('invoice_delete') dt-select @endcan">
                 <thead>
                     <tr>
                         @can('invoice_delete')

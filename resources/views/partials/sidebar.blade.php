@@ -80,6 +80,15 @@
                 </a>
             </li>
             @endcan
+
+            @can('user_invoice')
+                <li class="{{ $request->segment(1) == 'invoices' ? 'active' : '' }}">
+                    <a href="{{ route('invoices.user_invoice') }}">
+                        <i class="fa fa-file"></i>
+                        <span class="title">@lang('quickadmin.invoice.title')</span>
+                    </a>
+                </li>
+            @endcan
             
 
             <li>
