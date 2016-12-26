@@ -19,6 +19,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'role_id' => 2,
+        'joining_date' =>  $faker->dateTimeBetween($startDate = '-2 months', $endDate = 'now')->format('d/m/Y'),
+        'per_month_pay' => $faker->numberBetween($min = 500, $max = 2000),
+        'per_week_pay' => $faker->numberBetween($min = 100, $max = 500),
+        'expected_day_of_invoice' => $faker->numberBetween($min = 1, $max = 28),
+        'paypal_email' => $faker->unique()->safeEmail
     ];
 });
