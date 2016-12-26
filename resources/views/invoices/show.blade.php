@@ -29,10 +29,6 @@
                             <td>{{ $invoice->to_date }}</td>
                         </tr>
                         <tr>
-                            <th>@lang('quickadmin.invoice.fields.last-invoice-at')</th>
-                            <td>{{ $invoice->last_invoice_at }}</td>
-                        </tr>
-                        <tr>
                             <th>@lang('quickadmin.invoice.fields.no-of-weeks')</th>
                             <td>{{ $invoice->no_of_weeks }}</td>
                         </tr>

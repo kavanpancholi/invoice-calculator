@@ -193,6 +193,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('expected_day_of_invoice', 'Expected Day of Invoice*', ['class' => 'control-label']) !!}
+                    {!! Form::number('expected_day_of_invoice', old('expected_day_of_invoice'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('expected_day_of_invoice'))
+                        <p class="help-block">
+                            {{ $errors->first('expected_day_of_invoice') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('paypal_email', 'Paypal Email', ['class' => 'control-label']) !!}
                     {!! Form::email('paypal_email', old('paypal_email'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>

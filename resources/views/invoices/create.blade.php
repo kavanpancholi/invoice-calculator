@@ -60,18 +60,6 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('last_invoice_at', 'Last Invoice Date', ['class' => 'control-label']) !!}
-                    {!! Form::text('last_invoice_at', old('last_invoice_at'), ['class' => 'form-control date', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('last_invoice_at'))
-                        <p class="help-block">
-                            {{ $errors->first('last_invoice_at') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
                     {!! Form::label('no_of_weeks', 'No of Weeks*', ['class' => 'control-label']) !!}
                     {!! Form::number('no_of_weeks', old('no_of_weeks'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>

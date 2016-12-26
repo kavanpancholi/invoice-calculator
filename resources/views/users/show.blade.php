@@ -68,6 +68,10 @@
                             <td>{{ $user->per_week_pay }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.users.fields.expected-day-of-invoice')</th>
+                            <td>{{ $user->expected_day_of_invoice }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.users.fields.paypal-email')</th>
                             <td>{{ $user->paypal_email }}</td>
                         </tr>

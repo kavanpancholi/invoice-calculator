@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->date('ending_date')->nullable();
             $table->decimal('per_month_pay', 15, 2)->nullable();
             $table->decimal('per_week_pay', 15, 2)->nullable();
+            $table->integer('expected_day_of_invoice')->nullable();
             $table->string('paypal_email')->nullable();
             $table->string('remember_token')->nullable();
             

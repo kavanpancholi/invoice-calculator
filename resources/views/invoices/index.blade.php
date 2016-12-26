@@ -25,7 +25,6 @@
                         <th>@lang('quickadmin.invoice.fields.per-week-pay')</th>
                         <th>@lang('quickadmin.invoice.fields.from-date')</th>
                         <th>@lang('quickadmin.invoice.fields.to-date')</th>
-                        <th>@lang('quickadmin.invoice.fields.last-invoice-at')</th>
                         <th>@lang('quickadmin.invoice.fields.no-of-weeks')</th>
                         <th>@lang('quickadmin.invoice.fields.total-amount')</th>
                         <th>@lang('quickadmin.invoice.fields.paypal-email')</th>
@@ -45,7 +44,6 @@
                                 <td>{{ $invoice->per_week_pay }}</td>
                                 <td>{{ $invoice->from_date }}</td>
                                 <td>{{ $invoice->to_date }}</td>
-                                <td>{{ $invoice->last_invoice_at }}</td>
                                 <td>{{ $invoice->no_of_weeks }}</td>
                                 <td>{{ $invoice->total_amount }}</td>
                                 <td>{{ $invoice->paypal_email }}</td>

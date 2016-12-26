@@ -18,10 +18,10 @@ class CreateInvoicesTable extends Migration
             $table->decimal('per_week_pay', 15, 2);
             $table->date('from_date');
             $table->date('to_date');
-            $table->date('last_invoice_at')->nullable();
             $table->integer('no_of_weeks');
             $table->integer('total_amount');
             $table->string('paypal_email');
+            $table->integer('email_sent')->default(0);
 
             $table->timestamps();
             $table->softDeletes();
