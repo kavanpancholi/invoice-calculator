@@ -6,14 +6,6 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
-Route::get('mail', function(){
-    Mail::to('kavanpancholi@gmail.com')->send(new \App\Mail\Invoice());
-});
-
-Route::get('invoice', function(){
-    return Invoice::generate(2);
-});
-
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('auth.login');
 $this->post('login', 'Auth\LoginController@login')->name('auth.login');
