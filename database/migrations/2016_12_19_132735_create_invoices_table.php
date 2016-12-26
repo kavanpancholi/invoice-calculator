@@ -19,10 +19,10 @@ class CreateInvoicesTable extends Migration
             $table->date('from_date');
             $table->date('to_date');
             $table->integer('no_of_weeks');
-            $table->integer('holidays_after_limit')->nullable();
-            $table->integer('subtotal')->nullable();
-            $table->integer('remaining')->nullable();
-            $table->integer('bonus')->nullable();
+            $table->integer('holidays_after_limit');
+            $table->integer('subtotal');
+            $table->integer('remaining');
+            $table->integer('bonus');
             $table->integer('total_amount');
             $table->string('paypal_email');
             $table->integer('email_sent')->default(0);
