@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\BirthdayWish;
 use App\Console\Commands\InvoiceCalculate;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        InvoiceCalculate::class
+        InvoiceCalculate::class,
+        BirthdayWish::class
     ];
 
     /**
@@ -28,6 +30,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('invoice:calculate')->dailyAt('12:00');
+        $schedule->command('birthday:wish')->dailyAt('10:00');
     }
 
     /**
