@@ -102,7 +102,8 @@ class Invoice extends Model
             $start_date = Carbon::createFromFormat(config('app.date_format'), $user->joining_date);
         }
         else{
-            dd('else');
+            $last_invoice = Invoice::lastInvoice($user_id)->first();
+            $start_date = Carbon::createFromFormat(config('app.date_format'), $last_invoice->to_date)->addDay();
         }
         $end_date = Carbon::createFromDate(null, null, $user->expected_day_of_invoice);
         $working_days = $start_date->diffInDays($end_date)+1;
@@ -122,6 +123,7 @@ class Invoice extends Model
                 break;
             }
         }
+        $weeks = round($weeks,0);
         $holidays_after_limit = 0;
         $subtotal = $per_week_pay * $weeks;
         $remaining = 0;
@@ -151,7 +153,7 @@ class Invoice extends Model
     }
 
     public function scopeLastInvoice($query, $user_id){
-        return $query->where('user_id',$user_id)->latest()->first();
+        return $query->where('user_id',$user_id)->latest();
     }
     
     public function user()
