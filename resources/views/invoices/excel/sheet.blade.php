@@ -7,10 +7,10 @@
     <td><strong>To</strong></td>
 </tr>
 <tr>
-    <td>{!! $data['per_week'] !!}</td>
-    <td>{!! $data['weeks'] !!}</td>
-    <td align="right">{!! $data['start_date'] !!}</td>
-    <td align="right">{!! $data['end_date'] !!}</td>
+    <td>{!! $data['per_week_pay'] !!}</td>
+    <td>{!! $data['no_of_weeks'] !!}</td>
+    <td align="right">{!! $data['from_date'] !!}</td>
+    <td align="right">{!! $data['to_date'] !!}</td>
 </tr>
 
 <tr></tr>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
     <td><strong>Total Excluding Holidays</strong></td>
-    <td>{!! $data['total_excluding_holidays'] !!}</td>
+    <td>{!! $data['total_amount'] !!}</td>
 </tr>
 
 <tr></tr>

@@ -32,7 +32,7 @@ class User extends Authenticatable
 {
     use SoftDeletes;
     
-    protected $fillable = ['name', 'email', 'password', 'date_of_birth', 'remember_token', 'ref_user_id', 'reporting_user_id', 'supervisor_user_id', 'last_company_name', 'last_company_position', 'joining_date', 'ending_date', 'per_month_pay', 'per_week_pay', 'paypal_email', 'role_id', 'position_id', 'department_id'];
+    protected $fillable = ['name', 'email', 'password', 'date_of_birth', 'remember_token', 'ref_user_id', 'reporting_user_id', 'supervisor_user_id', 'last_company_name', 'last_company_position', 'joining_date', 'ending_date', 'per_month_pay', 'per_week_pay', 'expected_day_of_invoice', 'paypal_email', 'role_id', 'position_id', 'department_id'];
     
     
     /**
