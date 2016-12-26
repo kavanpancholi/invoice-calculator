@@ -22,7 +22,7 @@ class Invoice extends Model
 {
     use SoftDeletes;
     
-    protected $fillable = ['per_week_pay', 'from_date', 'to_date', 'no_of_weeks', 'total_amount', 'paypal_email', 'user_id'];
+    protected $fillable = ['per_week_pay', 'from_date', 'to_date', 'no_of_weeks', 'holidays_after_limit', 'subtotal', 'remaining', 'bonus', 'total_amount', 'paypal_email', 'user_id'];
     
 
     /**

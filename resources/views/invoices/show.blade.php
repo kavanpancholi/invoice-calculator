@@ -33,6 +33,22 @@
                             <td>{{ $invoice->no_of_weeks }}</td>
                         </tr>
                         <tr>
+                            <th>@lang('quickadmin.invoice.fields.holidays-after-limit')</th>
+                            <td>{{ $invoice->holidays_after_limit }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.invoice.fields.subtotal')</th>
+                            <td>{{ $invoice->subtotal }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.invoice.fields.remaining')</th>
+                            <td>{{ $invoice->remaining }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.invoice.fields.bonus')</th>
+                            <td>{{ $invoice->bonus }}</td>
+                        </tr>
+                        <tr>
                             <th>@lang('quickadmin.invoice.fields.total-amount')</th>
                             <td>{{ $invoice->total_amount }}</td>
                         </tr>

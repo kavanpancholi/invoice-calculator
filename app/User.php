@@ -228,7 +228,7 @@ class User extends Authenticatable
 
     public function invoice()
     {
-        return $this->hasMany(Invoice::class, 'user_id')->withTrashed();
+        return $this->hasMany(Invoice::class, 'user_id');
     }
     
 }
