@@ -25,7 +25,14 @@ Database migration and seeds
 php artisan migrate --seed
 ```
 
-### Default Users Credentials
+### Default Admin User Credentials
 
 Email: admin@admin.com  
 Password: admin
+
+### Schedule Cron Job
+
+Add following cron entry to your server
+```sh
+* * * * * php /path/to/project schedule:run >> /dev/null 2>&1
+```
