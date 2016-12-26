@@ -1,6 +1,6 @@
 <?php
 use App\Invoice;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return redirect('/home');
