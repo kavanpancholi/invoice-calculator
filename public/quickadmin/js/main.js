@@ -13,7 +13,8 @@ $(document).ready(function () {
             dom: 'frtip<"actions">',
             columnDefs: [],
             "iDisplayLength": 100,
-            "aaSorting": []
+            "aaSorting": [],
+            "pageLength": 20
         };
 
         if ($(this).hasClass('dt-select')) {
