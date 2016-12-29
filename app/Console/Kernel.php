@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AnniversaryWish;
 use App\Console\Commands\BirthdayWish;
 use App\Console\Commands\InvoiceCalculate;
 use Illuminate\Console\Scheduling\Schedule;
@@ -16,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         InvoiceCalculate::class,
-        BirthdayWish::class
+        BirthdayWish::class,
+        AnniversaryWish::class
     ];
 
     /**
