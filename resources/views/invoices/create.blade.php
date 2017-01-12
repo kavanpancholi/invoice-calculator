@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('holidays_after_limit', 'Holidays After Limit*', ['class' => 'control-label']) !!}
-                    {!! Form::number('holidays_after_limit', old('holidays_after_limit'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::number('holidays_after_limit', old('holidays_after_limit') ?: 0, ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('holidays_after_limit'))
                         <p class="help-block">
@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('subtotal', 'Subtotal*', ['class' => 'control-label']) !!}
-                    {!! Form::number('subtotal', old('subtotal'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::number('subtotal', old('subtotal') ?: 0, ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('subtotal'))
                         <p class="help-block">
@@ -97,7 +97,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('remaining', 'Remaining*', ['class' => 'control-label']) !!}
-                    {!! Form::number('remaining', old('remaining'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::number('remaining', old('remaining') ?: 0, ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('remaining'))
                         <p class="help-block">
@@ -109,7 +109,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('bonus', 'Bonus*', ['class' => 'control-label']) !!}
-                    {!! Form::number('bonus', old('bonus'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::number('bonus', old('bonus') ?: 0, ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('bonus'))
                         <p class="help-block">
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('total_amount', 'Total Amount*', ['class' => 'control-label']) !!}
-                    {!! Form::number('total_amount', old('total_amount'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::number('total_amount', old('total_amount') ?: 0, ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
                     @if($errors->has('total_amount'))
                         <p class="help-block">

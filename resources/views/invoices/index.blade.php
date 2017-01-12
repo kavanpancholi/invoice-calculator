@@ -51,9 +51,9 @@
                                     @can('invoice_view')
                                     <a href="{{ route('invoices.show',[$invoice->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.view')</a>
                                     @endcan
-                                    @can('invoice_edit')
-                                    <a href="{{ route('invoices.edit',[$invoice->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.edit')</a>
-                                    @endcan
+                                    {{--@can('invoice_edit')--}}
+                                    {{--<a href="{{ route('invoices.edit',[$invoice->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.edit')</a>--}}
+                                    {{--@endcan--}}
                                     @can('invoice_delete')
                                     {!! Form::open(array(
                                         'style' => 'display: inline-block;',
